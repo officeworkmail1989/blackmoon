@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Black MOON Portal</title>
+
+    <meta name="theme-color" content="#090a12">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Black MOON">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Tab icon (favicon) + App icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAA/1BMVEUGBwwXGisCAgQQERwkKEchJDkxNlkeITn5+v4HChIJCRIJChF2eZHl5/MeIkM9Qma4u85FRUhVWW5mZ2uBhaeUl6zExtRxcn6HiI6coLynqK29wM/Z2+zf4fQwMDA4PWNESXBZWl9/g6WprcnGyeMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADUy6GJAAAAQHRSTlP+/wb///////9Eidr/////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACy4DUgAAAQlJREFUeNqFk9mCwyAIRSUg2FSzp3tn//9vnGY2UTPtfTJyglcEU91Ub82KtvUSM1W1Mf9qswB34gthqmQDEVOiMnX8gJusFQAF1ebPHwIQM30pItE+SPMy8M/aWsjdgKW3fUwNBHmc38dkIyXQNt0h/0XfB5qpyw8VlQKEQ18UiZQlmEJZReUC6ONUAgCxRBz8CmAj0LpVABVwuA/wdbdiUpTJzhXFN6xuId7tixMSgC/BpnFkXWtovEtd4JC8Flo6urPK8eQZMHvuowuvv/w4P0vREOQvLsxD34+nbiJZaamG/Tk4d93Nrai4aloR4rZlAtFNm7X9t3TbF4OD2eA8Hr2Hw/tg/D8BEKMIt24CPXEAAAAASUVORK5CYII=">
+    <link rel="icon" type="image/png" sizes="48x48" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAA/1BMVEUGBgwWGCgnK0sAAAEPERz5+v4uMlIiJTseIDZDSHEICRHm6PUyOGF0eJajp8IKChAJChIIChEAFBTe4PCWmawyMjVZXG1lZmqxtMzX2efFx9pKS06HiZA8QmpeYG90dX1/g6WYmZ6lqLpWXIWCh6qdob2wsbvJzOLW198AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABk6sY7AAAAQHRSTlP+//8D////////y/////8vfZAM/////////////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJw+HRAAAAcVJREFUeNqVVmuTgyAM1NQgiq/6qNpee23v+f9/4YVDZyoGR/KhM8VdyELYEBxMVGmwGWk1AQP9Ux+DHXGsZ0KZBrsiLQ2hDHZHqQl1up+Q1kRg8o+ikCKKGB1EYMFzrEiHoFoOEEjGACCEAIg1Z/m9ChYKaHaNzpKrmEjEWSySWtNLwp3ym5hAIQiQ9iKv+FhAUrTd62AsYhcj1PPdx94eFsAzND4rVLf+wjMiyicbMObmIunrMwmlEAUKPlshQyYhyPHNtR3rpGj/E9U4i4iSshUAtJg7CbREZCmApMHOXaeWCtoiUjBuFDYsl9AZFfj0ImTnDQn6vBcE2tRkxPdtQrjS7ElQzmPTIS1CqFcYtkQvCUb0GG2cA7eteHFLyGyCPjhs3RllVoWbbVKxAx8lYBW4KT78dhBOmV18prwRex7/sSrv6QIpPDH4/hOYW22uqMLbGj8I5ooaE9AM+7wfQyY4E5hsBhHPr2n1v4TfMCaRk3IcH5eOfLu7tArv4MLPVtk2qEMpTf1KwG2Vsxkn+fPcEP6nyK/01zZjzu7J7ym04zN272go/xFLpqE4WpaUrpbl3xS92653Y/d/Ovg/TryeP38L2xJJDxuTwgAAAABJRU5ErkJggg==">
+    <link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+    <script>
+        /* install prompt ধরে রাখা — পেজ লোডের আগেই, যাতে event মিস না হয় */
+        window._bip = null;
+        window.addEventListener('beforeinstallprompt', function (e) {
+            e.preventDefault();
+            window._bip = e;
+            window.dispatchEvent(new Event('bip-ready'));
+        });
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* ── DESIGN TOKENS ── */
+        :root {
+            --ink:        #090a12;   /* গভীর রাত */
+            --ink-2:      #12142a;   /* সারফেস */
+            --ink-3:      #1c1f3d;   /* বর্ডার/হোভার */
+            --moon:       #eef0ff;   /* চাঁদের আলো */
+            --moon-dim:   rgba(238,240,255,0.62);
+            --halo:       #8f9cff;   /* corona */
+            --ok:         #5ee6a8;
+            --warn:       #ff8a7a;
+            --safe-t: env(safe-area-inset-top, 0px);
+            --safe-b: env(safe-area-inset-bottom, 0px);
+            --bar-h: calc(56px + var(--safe-t));
+            --bg: #090a12;
+        }
+        [data-theme="dark"] { --bg: #090a12; }
+
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Bengali", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        button { font-family: inherit; }
+        :focus-visible { outline: 2px solid var(--halo); outline-offset: 2px; }
+
+        #app { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; }
+
+        /* ── TOP BAR ── */
+        #top-bar {
+            position: fixed; top: 0; left: 0; right: 0;
+            height: var(--bar-h);
+            padding: var(--safe-t) 14px 0;
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(9,10,18,0.88);
+            -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+            z-index: 8000;
+        }
+        #top-bar::after {              /* নিচের আলোর রেখা */
+            content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(143,156,255,0.55) 50%, transparent);
+        }
+        #top-bar-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+        .bar-logo { width: 30px; height: 30px; flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(143,156,255,0.5)); }
+        #top-bar-title {
+            font-size: 17px; font-weight: 600; letter-spacing: 0.02em;
+            color: var(--moon);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        /* live / offline badge */
+        #live-badge { display: flex; align-items: center; gap: 6px; padding: 4px 6px; border-radius: 99px; }
+        #live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex-shrink: 0; }
+        #live-dot.online-pulse { animation: ping 2.4s ease-out infinite; }
+        #live-label { font-size: 11px; font-weight: 600; color: var(--warn); letter-spacing: 0.04em; }
+        #live-label:empty { display: none; }
+        #live-badge.offline-mode { background: rgba(255,138,122,0.12); padding-right: 10px; }
+
+        .top-btn {
+            position: relative;
+            width: 38px; height: 38px; border-radius: 12px;
+            background: var(--ink-2);
+            border: 1px solid var(--ink-3);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 16px; line-height: 1;
+            color: var(--moon);
+            flex-shrink: 0;
+            transition: background 0.2s, border-color 0.2s, transform 0.15s;
+        }
+        .top-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .top-btn:hover  { background: var(--ink-3); border-color: rgba(143,156,255,0.45); }
+        .top-btn:active { transform: scale(0.92); }
+        #notif-btn.on { color: var(--halo); border-color: rgba(143,156,255,0.5); }
+        #notif-btn.on::after {
+            content: ""; position: absolute; top: 7px; right: 8px;
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--ok); border: 1.5px solid var(--ink-2);
+        }
+
+        /* ── IFRAME ── */
+        #gas-portal {
+            border: none; width: 100%; flex: 1;
+            margin-top: var(--bar-h);
+            background: #fff;
+            transition: filter 0.3s;
+        }
+        [data-theme="dark"] #gas-portal { filter: invert(0.92) hue-rotate(180deg); }
+
+        /* ── SPLASH SCREEN ── */
+        #splash {
+            position: fixed; inset: 0;
+            background:
+                radial-gradient(55% 38% at 50% 38%, rgba(143,156,255,0.20) 0%, rgba(143,156,255,0) 70%),
+                var(--ink);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        #splash.fade-out { opacity: 0; transform: scale(1.06); pointer-events: none; }
+
+        .s-moon { position: relative; width: 176px; height: 176px; margin-bottom: 34px; animation: moonIn 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+        .s-ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .s-track { fill: none; stroke: rgba(238,240,255,0.08); stroke-width: 3; }
+        #prog-bar {
+            fill: none; stroke: url(#ringGrad); stroke-width: 3; stroke-linecap: round;
+            stroke-dasharray: 490.1; stroke-dashoffset: 490.1;
+            transition: stroke-dashoffset 0.25s linear;
+            filter: drop-shadow(0 0 6px rgba(143,156,255,0.9));
+        }
+        .s-disc {
+            position: absolute; left: 50%; top: 50%;
+            width: 118px; height: 118px; margin: -59px 0 0 -59px;
+            animation: halo 3.2s ease-in-out infinite;
+        }
+        .s-name { font-size: 25px; font-weight: 600; letter-spacing: 0.04em; color: var(--moon); margin-bottom: 8px; animation: fadeUp 0.7s 0.25s both; }
+        .s-sub  { font-size: 14px; color: var(--moon-dim); margin-bottom: 18px; animation: fadeUp 0.7s 0.4s both; }
+        .s-pct  { font-size: 13px; font-weight: 600; color: var(--halo); font-variant-numeric: tabular-nums; min-width: 40px; text-align: center; animation: fadeUp 0.7s 0.5s both; }
+
+        /* ── OFFLINE FALLBACK PAGE ── */
+        #offline-page {
+            display: none;
+            position: fixed; inset: 0;
+            background: radial-gradient(60% 40% at 50% 32%, #171a3a 0%, var(--ink) 70%);
+            flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 28px; text-align: center;
+            z-index: 7000;
+            animation: fadeUp 0.4s ease;
+        }
+        #offline-page.show { display: flex; }
+        .offline-icon  { width: 84px; height: 84px; margin-bottom: 26px; }
+        .offline-title { font-size: 22px; font-weight: 600; color: var(--moon); margin-bottom: 10px; }
+        .offline-sub   { font-size: 14px; color: var(--moon-dim); max-width: 300px; margin-bottom: 30px; line-height: 1.8; }
+        .offline-retry {
+            padding: 14px 30px; border-radius: 14px;
+            background: var(--moon); color: var(--ink);
+            font-size: 15px; font-weight: 700;
+            border: none; cursor: pointer;
+            box-shadow: 0 0 28px rgba(143,156,255,0.35);
+            transition: transform 0.15s;
+        }
+        .offline-retry:active { transform: scale(0.97); }
+        .offline-dots { display: flex; gap: 8px; margin-top: 40px; }
+        .offline-dots span {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(238,240,255,0.3);
+            animation: blink 1.4s ease-in-out infinite;
+        }
+        .offline-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .offline-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        /* ── TOAST ── */
+        #notif-toast {
+            position: fixed; bottom: calc(26px + var(--safe-b)); left: 50%;
+            transform: translateX(-50%) translateY(16px);
+            max-width: calc(100% - 32px);
+            background: var(--ink-2); color: var(--moon);
+            padding: 11px 18px; border-radius: 14px;
+            font-size: 13px; font-weight: 500; line-height: 1.5;
+            z-index: 9998; opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            border: 1px solid var(--ink-3);
+        }
+        #notif-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* ── SHARED SHEET STYLE (install + update) ── */
+        .sheet {
+            display: none;
+            position: fixed; left: 50%;
+            width: calc(100% - 28px); max-width: 420px;
+            background: var(--ink-2); color: var(--moon);
+            border-radius: 20px;
+            border: 1px solid var(--ink-3);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(143,156,255,0.06);
+            padding: 16px;
+        }
+        .sheet-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .sheet-icon { width: 48px; height: 48px; border-radius: 13px; flex-shrink: 0; }
+        .sheet-title { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+        .sheet-desc  { font-size: 12.5px; color: var(--moon-dim); line-height: 1.5; }
+        .sheet-btns  { display: flex; justify-content: flex-end; gap: 9px; }
+        .sheet-btn   { padding: 10px 18px; border-radius: 11px; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: transform 0.15s; }
+        .sheet-btn:active { transform: scale(0.96); }
+        .sheet-btn.ghost   { background: var(--ink-3); color: var(--moon-dim); }
+        .sheet-btn.primary { background: var(--moon); color: var(--ink); }
+
+        /* install banner (নিচে) */
+        #install-banner { bottom: calc(20px + var(--safe-b)); transform: translateX(-50%); z-index: 9990; animation: slideUp 0.5s cubic-bezier(0.16,1,0.3,1); }
+
+        /* update banner (উপরে) */
+        #update-banner { top: calc(var(--bar-h) + 10px); transform: translateX(-50%); z-index: 9995; border-color: rgba(143,156,255,0.45); }
+        #update-banner.show { display: block; animation: dropIn 0.5s cubic-bezier(0.16,1,0.3,1); }
+
+        /* ── KEYFRAMES ── */
+        @keyframes blink   { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.25;transform:scale(0.8)} }
+        @keyframes fadeUp  { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes slideUp { from{transform:translate(-50%,80px);opacity:0} to{transform:translate(-50%,0);opacity:1} }
+        @keyframes dropIn  { from{transform:translate(-50%,-30px);opacity:0} to{transform:translate(-50%,0);opacity:1} }
+        @keyframes moonIn  { from{opacity:0;transform:scale(0.9)} to{opacity:1;transform:scale(1)} }
+        @keyframes halo    { 0%,100%{filter:drop-shadow(0 0 10px rgba(143,156,255,0.35))} 50%{filter:drop-shadow(0 0 24px rgba(143,156,255,0.75))} }
+        @keyframes ping    { 0%{box-shadow:0 0 0 0 rgba(94,230,168,0.55)} 80%,100%{box-shadow:0 0 0 8px rgba(94,230,168,0)} }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <!-- Top Bar -->
+    <div id="top-bar">
+        <div id="top-bar-left">
+            <svg class="bar-logo" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="31" fill="#eef0ff"/>
+                <circle cx="53.2" cy="47.5" r="29.2" fill="#000"/>
+            </svg>
+            <span id="top-bar-title">Black MOON Portal</span>
+            <!-- Live / Offline Badge -->
+            <div id="live-badge">
+                <div id="live-dot" class="online-pulse"></div>
+                <span id="live-label"></span>
+            </div>
+        </div>
+
+        <!-- Notification Button -->
+        <div class="top-btn" id="notif-btn" role="button" tabindex="0" onclick="enableNotifications()" title="আপডেট নোটিফিকেশন চালু করুন">
+            <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        </div>
+
+        <!-- Hard Reset Button -->
+        <div class="top-btn" id="reset-btn" role="button" tabindex="0" onclick="hardReset()" title="অ্যাপ হার্ড রিসেট করুন">
+            <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+        </div>
+    </div>
+
+    <!-- iFrame -->
+    <iframe
+        id="gas-portal"
+        src="https://script.google.com/macros/s/AKfycbxydIXqDFZItPF8dIAvLTjAxXduE4ju2oVtcDr27WId4OGTeHh-3iBOEX548JnlNWp-Jw/exec"
+        allow="camera; microphone; geolocation"
+        title="Joynagar Store Data">
+    </iframe>
+
+    <!-- Splash Screen -->
+    <div id="splash">
+        <div class="s-moon">
+            <svg class="s-ring" viewBox="0 0 176 176" aria-hidden="true">
+                <defs>
+                    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#eef0ff"/>
+                        <stop offset="1" stop-color="#8f9cff"/>
+                    </linearGradient>
+                </defs>
+                <circle class="s-track" cx="88" cy="88" r="78"/>
+                <circle id="prog-bar" cx="88" cy="88" r="78" transform="rotate(-90 88 88)"/>
+            </svg>
+            <svg class="s-disc" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="31" fill="#eef0ff"/>
+                <circle cx="53.2" cy="47.5" r="29.2" fill="#000"/>
+            </svg>
+        </div>
+        <div class="s-name">Black MOON Portal</div>
+        <div class="s-sub">Connecting…</div>
+        <div class="s-pct" id="prog-pct">0%</div>
+    </div>
+
+    <!-- Offline Fallback Page -->
+    <div id="offline-page">
+        <svg class="offline-icon" viewBox="0 0 100 100" aria-hidden="true">
+            <defs><radialGradient id="offGlow"><stop offset=".55" stop-color="#8f9cff" stop-opacity=".55"/><stop offset="1" stop-color="#8f9cff" stop-opacity="0"/></radialGradient></defs>
+            <circle cx="50" cy="50" r="48" fill="url(#offGlow)"/>
+            <circle cx="50" cy="50" r="31" fill="#eef0ff"/>
+            <circle cx="53.2" cy="47.5" r="29.2" fill="#000"/>
+        </svg>
+        <div class="offline-title">ইন্টারনেট নেই</div>
+        <div class="offline-sub">নেটওয়ার্ক সংযোগ পাওয়া যাচ্ছে না। WiFi বা Mobile Data চালু করে আবার চেষ্টা করুন।</div>
+        <button class="offline-retry" onclick="retryConnection()">আবার চেষ্টা করুন</button>
+        <div class="offline-dots"><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- Toast -->
+    <div id="notif-toast">🔔 Notification চালু হয়েছে!</div>
+
+    <!-- Update Banner -->
+    <div id="update-banner" class="sheet" role="status" aria-live="polite">
+        <div class="sheet-row">
+            <svg class="sheet-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <defs><radialGradient id="shGlow"><stop offset=".55" stop-color="#8f9cff" stop-opacity=".55"/><stop offset="1" stop-color="#8f9cff" stop-opacity="0"/></radialGradient></defs>
+                <rect width="100" height="100" rx="22" fill="#090a12"/>
+                <circle cx="50" cy="50" r="38" fill="url(#shGlow)"/>
+                <circle cx="50" cy="50" r="31" fill="#eef0ff"/>
+                <circle cx="53.2" cy="47.5" r="29.2" fill="#000"/>
+            </svg>
+            <div>
+                <div class="sheet-title">নতুন আপডেট এসেছে</div>
+                <div class="sheet-desc">সর্বশেষ সংস্করণ পেতে এখনই আপডেট করুন।</div>
+            </div>
+        </div>
+        <div class="sheet-btns">
+            <button class="sheet-btn ghost" onclick="dismissUpdate()">পরে</button>
+            <button class="sheet-btn primary" id="update-now" onclick="applyUpdate()">আপডেট করুন</button>
+        </div>
+    </div>
+
+    <!-- Install Banner -->
+    <div id="install-banner" class="sheet">
+        <div class="sheet-row">
+            <svg class="sheet-icon" viewBox="0 0 100 100" aria-hidden="true">
+                <defs><radialGradient id="shGlow2"><stop offset=".55" stop-color="#8f9cff" stop-opacity=".55"/><stop offset="1" stop-color="#8f9cff" stop-opacity="0"/></radialGradient></defs>
+                <rect width="100" height="100" rx="22" fill="#090a12"/>
+                <circle cx="50" cy="50" r="38" fill="url(#shGlow2)"/>
+                <circle cx="50" cy="50" r="31" fill="#eef0ff"/>
+                <circle cx="53.2" cy="47.5" r="29.2" fill="#000"/>
+            </svg>
+            <div>
+                <div class="sheet-title">Black MOON Portal ইনস্টল করুন</div>
+                <div class="sheet-desc">হোম স্ক্রিনে রাখুন — যেকোনো সময় এক ক্লিকে খুলুন</div>
+            </div>
+        </div>
+        <div class="sheet-btns">
+            <button class="sheet-btn ghost"   onclick="dismissBanner()">Cancel</button>
+            <button class="sheet-btn primary" onclick="triggerInstall()">Install</button>
+        </div>
+    </div>
+
+</div>
+<script>
+/* ── SERVICE WORKER + UPDATE DETECTION ── */
+let _newWorker = null;
+let _refreshing = false;
+
+function showUpdateBanner(worker) {
+    _newWorker = worker;
+    if (sessionStorage.getItem('update_dismissed') === worker.scriptURL + '|' + worker.state) return;
+    document.getElementById('update-banner').classList.add('show');
+}
+function dismissUpdate() {
+    document.getElementById('update-banner').classList.remove('show');
+    sessionStorage.setItem('update_dismissed', _newWorker ? _newWorker.scriptURL + '|' + _newWorker.state : '1');
+}
+function applyUpdate() {
+    const btn = document.getElementById('update-now');
+    btn.textContent = 'আপডেট হচ্ছে…';
+    btn.disabled = true;
+    if (_newWorker) _newWorker.postMessage({ type: 'SKIP_WAITING' });
+    else location.reload();
+}
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' })
+            .then(reg => {
+                console.log('[PWA] SW registered');
+                window._swReg = reg;
+
+                // অ্যাপ খোলার আগেই আপডেট waiting-এ থাকলে
+                if (reg.waiting && navigator.serviceWorker.controller) showUpdateBanner(reg.waiting);
+
+                // নতুন সংস্করণ পাওয়া গেলে
+                reg.addEventListener('updatefound', () => {
+                    const w = reg.installing;
+                    if (!w) return;
+                    w.addEventListener('statechange', () => {
+                        if (w.state === 'installed' && navigator.serviceWorker.controller) showUpdateBanner(w);
+                    });
+                });
+
+                // নিয়মিত আপডেট চেক: প্রতি ৩০ মিনিটে + অ্যাপে ফিরে এলে
+                const check = () => reg.update().catch(() => {});
+                setInterval(check, 30 * 60 * 1000);
+                document.addEventListener('visibilitychange', () => { if (!document.hidden) check(); });
+                window.addEventListener('online', check);
+
+                // Chrome (installed app): ব্যাকগ্রাউন্ডে আপডেট চেক
+                if ('Notification' in window && Notification.permission === 'granted') registerPeriodicCheck(reg);
+            })
+            .catch(e => console.warn('[PWA] SW failed:', e));
+    });
+
+    // নতুন SW চালু হলে একবার রিলোড
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (_refreshing) return;
+        _refreshing = true;
+        location.reload();
+    });
+}
+
+async function registerPeriodicCheck(reg) {
+    try {
+        if ('periodicSync' in reg) await reg.periodicSync.register('check-update', { minInterval: 6 * 60 * 60 * 1000 });
+    } catch (_) {}
+}
+
+/* ── NOTIFICATION PERMISSION ── */
+const notifBtn = document.getElementById('notif-btn');
+function refreshNotifBtn() {
+    const on = ('Notification' in window) && Notification.permission === 'granted';
+    notifBtn.classList.toggle('on', on);
+}
+async function enableNotifications() {
+    if (!('Notification' in window)) {
+        showToast('এই ব্রাউজারে নোটিফিকেশন সাপোর্ট নেই। অ্যাপটি হোম স্ক্রিনে ইনস্টল করে আবার চেষ্টা করুন।');
+        return;
+    }
+    if (Notification.permission === 'granted') { showToast('🔔 আপডেট নোটিফিকেশন চালু আছে'); return; }
+    if (Notification.permission === 'denied')  { showToast('নোটিফিকেশন বন্ধ করা আছে। ব্রাউজার/অ্যাপ সেটিংস থেকে চালু করুন।'); return; }
+    const res = await Notification.requestPermission();
+    refreshNotifBtn();
+    if (res === 'granted') {
+        showToast('🔔 Notification চালু হয়েছে!');
+        if (window._swReg) registerPeriodicCheck(window._swReg);
+    }
+}
+refreshNotifBtn();
+
+/* ── SPLASH PROGRESS ── */
+const progBar = document.getElementById('prog-bar');   // SVG ring
+const progPct = document.getElementById('prog-pct');
+const splash  = document.getElementById('splash');
+const RING_LEN = 490.1;
+function setProgress(p) {
+    progBar.style.strokeDashoffset = RING_LEN * (1 - p / 100);
+    progPct.textContent = Math.round(p) + '%';
+}
+let pct = 0;
+const tick = setInterval(() => {
+    pct += Math.random() * 14 + 4;
+    if (pct >= 100) { pct = 100; clearInterval(tick); }
+    setProgress(pct);
+}, 180);
+
+function hideSplash() {
+    if (!splash.classList.contains('fade-out')) {
+        pct = 100; setProgress(100);
+        clearInterval(tick);
+        setTimeout(() => splash.classList.add('fade-out'), 300);
+    }
+}
+document.getElementById('gas-portal').addEventListener('load', hideSplash);
+setTimeout(hideSplash, 6000);
+
+/* ── HARD RESET (clears settings/cache + forces latest update) ── */
+const resetBtn = document.getElementById('reset-btn');
+
+async function hardReset() {
+    const ok = confirm('⚠️ এটি অ্যাপের সমস্ত সেটিংস ও ক্যাশে মুছে দেবে এবং সর্বশেষ আপডেট লোড করবে।\n\nআপনি কি নিশ্চিত?');
+    if (!ok) return;
+
+    resetBtn.style.pointerEvents = 'none';
+    resetBtn.textContent = '⏳';
+    showToast('♻️ রিসেট হচ্ছে…');
+    _refreshing = true;   // reset নিজেই রিলোড করবে
+
+    try {
+        // 1) Clear all local settings/data
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // 2) Unregister the service worker so a fresh one takes over
+        if ('serviceWorker' in navigator) {
+            const regs = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(regs.map(reg => reg.unregister()));
+        }
+
+        // 3) Delete every cache (forces re-download of latest files on reload)
+        if ('caches' in window) {
+            const keys = await caches.keys();
+            await Promise.all(keys.map(k => caches.delete(k)));
+        }
+    } catch (err) {
+        console.warn('[Reset] error:', err);
+    }
+
+    // 4) Reload bypassing cache with a busting param so the newest update loads
+    setTimeout(() => {
+        window.location.href = window.location.pathname + '?reset=' + Date.now();
+    }, 400);
+}
+
+/* ── WHATSAPP REDIRECT FUNCTION ── */
+function openWhatsApp() {
+    const phoneNumber = "919153637208";
+    const customText = encodeURIComponent("হ্যালো এডমিন, আমি Raidighi CCC পোর্টাল থেকে যোগাযোগ করছি।");
+    const waUrl = `https://wa.me/${phoneNumber}?text=${customText}`;
+    window.open(waUrl, "_blank");
+    showToast("💬 হোয়াটসঅ্যাপ খোলা হচ্ছে...");
+}
+/* ── NATIVE SHARE ── */
+function doShare() {
+    const shareData = {
+        title: 'Raidighi CCC',
+        text: 'Raidighi CCC Portal — শেয়ার করুন!',
+        url: window.location.href
+    };
+    if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+    } else {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            showToast('🔗 Link copied to clipboard!');
+        }).catch(() => {
+            showToast('📋 Link: ' + window.location.href);
+        });
+    }
+}
+
+let _toastTimer;
+function showToast(msg) {
+    const t = document.getElementById('notif-toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+/* ── NETWORK STATUS → LIVE BADGE ── */
+const liveBadge = document.getElementById('live-badge');
+const liveDot   = document.getElementById('live-dot');
+const liveLabel = document.getElementById('live-label');
+const offPage   = document.getElementById('offline-page');
+
+function updateNet() {
+    if (navigator.onLine) {
+        liveBadge.classList.remove('offline-mode');
+        liveDot.classList.add('online-pulse');
+        liveDot.style.background = '#5ee6a8';
+        liveLabel.textContent = '';
+        offPage.classList.remove('show');
+    } else {
+        liveBadge.classList.add('offline-mode');
+        liveDot.classList.remove('online-pulse');
+        liveDot.style.background = '#ff8a7a';
+        liveLabel.textContent = 'OFFLINE';
+        offPage.classList.add('show');
+    }
+}
+function retryConnection() {
+    if (navigator.onLine) { offPage.classList.remove('show'); document.getElementById('gas-portal').src += ''; }
+    else {
+        const btn = offPage.querySelector('.offline-retry');
+        btn.textContent = 'চেক করছি…';
+        setTimeout(() => { btn.textContent = 'আবার চেষ্টা করুন'; updateNet(); }, 2000);
+    }
+}
+window.addEventListener('online',  updateNet);
+window.addEventListener('offline', updateNet);
+updateNet();
+
+/* ── PWA INSTALL BANNER ── */
+const isStandalone =
+    window.matchMedia('(display-mode: standalone)').matches ||
+    navigator.standalone === true ||
+    document.referrer.includes('android-app://') ||
+    localStorage.getItem('pwa_installed') === 'true';
+
+let deferredPrompt = window._bip || null;
+const banner = document.getElementById('install-banner');
+
+window.addEventListener('bip-ready', () => {
+    deferredPrompt = window._bip;
+    if (!isStandalone) showBanner();
+});
+if (!isStandalone) setTimeout(showBanner, 3000);
+
+function showBanner() {
+    if (!sessionStorage.getItem('banner_dismissed') && !isStandalone)
+        banner.style.display = 'block';
+}
+function dismissBanner() {
+    banner.style.display = 'none';
+    sessionStorage.setItem('banner_dismissed', 'true');
+}
+function triggerInstall() {
+    if (deferredPrompt) {
+        dismissBanner(); deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(r => {
+            if (r.outcome === 'accepted') localStorage.setItem('pwa_installed', 'true');
+            deferredPrompt = null;
+        });
+        return;
+    }
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if (isIOS) {
+        alert("📲 iOS-এ ইনস্টল:\n\n১. Safari-এর Share বোতামে ট্যাপ করুন\n২. 'Add to Home Screen' সিলেক্ট করুন\n৩. 'Add' চাপুন");
+    } else {
+        alert("📲 ইনস্টল:\n\n১. ব্রাউজারের ৩টি ডট মেনুতে ক্লিক করুন\n২. 'Install app' বা 'Add to Home screen' চাপুন");
+    }
+}
+window.addEventListener('appinstalled', () => {
+    localStorage.setItem('pwa_installed', 'true'); dismissBanner();
+});
+
+/* keyboard: Enter/Space on div-buttons */
+document.querySelectorAll('.top-btn[role=button]').forEach(b =>
+    b.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.click(); } }));
+</script>
+</body>
+</html>
