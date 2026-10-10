@@ -236,6 +236,16 @@
         @keyframes halo    { 0%,100%{filter:drop-shadow(0 0 10px rgba(143,156,255,0.35))} 50%{filter:drop-shadow(0 0 24px rgba(143,156,255,0.75))} }
         @keyframes ping    { 0%{box-shadow:0 0 0 0 rgba(94,230,168,0.55)} 80%,100%{box-shadow:0 0 0 8px rgba(94,230,168,0)} }
 
+        @media (max-width: 400px) {
+            #top-bar { padding-left: 10px; padding-right: 10px; gap: 6px; }
+            #top-bar-left { gap: 7px; }
+            .bar-logo { width: 26px; height: 26px; }
+            #top-bar-title { font-size: 15px; letter-spacing: 0; }
+            .top-btn { width: 34px; height: 34px; border-radius: 10px; }
+            .top-btn svg { width: 17px; height: 17px; }
+            #notif-btn.on::after { top: 6px; right: 7px; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         }
@@ -262,6 +272,11 @@
         <!-- Notification Button -->
         <div class="top-btn" id="notif-btn" role="button" tabindex="0" onclick="enableNotifications()" title="আপডেট নোটিফিকেশন চালু করুন">
             <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        </div>
+
+        <!-- Share Button -->
+        <div class="top-btn" id="share-btn" role="button" tabindex="0" onclick="doShare()" title="অ্যাপের লিংক শেয়ার করুন">
+            <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4"/><path d="M15.4 6.5l-6.8 4"/></svg>
         </div>
 
         <!-- Hard Reset Button -->
@@ -523,20 +538,23 @@ function openWhatsApp() {
     showToast("💬 হোয়াটসঅ্যাপ খোলা হচ্ছে...");
 }
 /* ── NATIVE SHARE ── */
+const APP_URL = 'https://blackmoon-two.vercel.app';
 function doShare() {
     const shareData = {
-        title: 'Raidighi CCC',
-        text: 'Raidighi CCC Portal — শেয়ার করুন!',
-        url: window.location.href
+        title: 'Black MOON Portal',
+        text: 'Black MOON Portal — শেয়ার করুন!',
+        url: APP_URL
     };
     if (navigator.share) {
         navigator.share(shareData).catch(() => {});
-    } else {
-        navigator.clipboard.writeText(window.location.href).then(() => {
+    } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(APP_URL).then(() => {
             showToast('🔗 Link copied to clipboard!');
         }).catch(() => {
-            showToast('📋 Link: ' + window.location.href);
+            showToast('📋 Link: ' + APP_URL);
         });
+    } else {
+        showToast('📋 Link: ' + APP_URL);
     }
 }
 
